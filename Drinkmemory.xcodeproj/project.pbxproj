@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5355C14126DE705600C7651F /* Pods_Drinkmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; };
+		5355C14226DE705600C7651F /* Pods_Drinkmemory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53FC86EB26DE57EF004FC878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EA26DE57EF004FC878 /* AppDelegate.swift */; };
 		53FC86ED26DE57EF004FC878 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */; };
 		53FC86EF26DE57EF004FC878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EE26DE57EF004FC878 /* ViewController.swift */; };
@@ -20,8 +22,22 @@
 		53FC870A26DE673F004FC878 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870926DE673F004FC878 /* CategoryViewController.swift */; };
 		53FC870C26DE6760004FC878 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870B26DE6760004FC878 /* ListViewController.swift */; };
 		53FC870E26DE6783004FC878 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870D26DE6783004FC878 /* ProductViewController.swift */; };
-		591677C39F40F9AB0E65E3D3 /* Pods_Drinkmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; };
+		53FC871026DE68D3004FC878 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FC870F26DE68D3004FC878 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5355C14326DE705600C7651F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5355C14226DE705600C7651F /* Pods_Drinkmemory.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1B2C09C3A8C378C0D998A058 /* Pods-Drinkmemory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinkmemory.debug.xcconfig"; path = "Target Support Files/Pods-Drinkmemory/Pods-Drinkmemory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -40,6 +56,7 @@
 		53FC870926DE673F004FC878 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		53FC870B26DE6760004FC878 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		53FC870D26DE6783004FC878 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		53FC870F26DE68D3004FC878 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68EACF1AF45A9E5EA2E339B0 /* Pods-Drinkmemory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinkmemory.release.xcconfig"; path = "Target Support Files/Pods-Drinkmemory/Pods-Drinkmemory.release.xcconfig"; sourceTree = "<group>"; };
 		BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drinkmemory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -49,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				591677C39F40F9AB0E65E3D3 /* Pods_Drinkmemory.framework in Frameworks */,
+				5355C14126DE705600C7651F /* Pods_Drinkmemory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +118,7 @@
 				53FC86F326DE57F0004FC878 /* Assets.xcassets */,
 				53FC86F526DE57F0004FC878 /* LaunchScreen.storyboard */,
 				53FC86F826DE57F0004FC878 /* Info.plist */,
+				53FC870F26DE68D3004FC878 /* GoogleService-Info.plist */,
 			);
 			path = Drinkmemory;
 			sourceTree = "<group>";
@@ -149,6 +167,7 @@
 				53FC86E526DE57EF004FC878 /* Resources */,
 				7BE540B1DE7F16582D851294 /* [CP] Embed Pods Frameworks */,
 				94B90A1F5BA7156E0DD5D7ED /* [CP] Copy Pods Resources */,
+				5355C14326DE705600C7651F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +217,7 @@
 			files = (
 				53FC86F726DE57F0004FC878 /* LaunchScreen.storyboard in Resources */,
 				53FC86F426DE57F0004FC878 /* Assets.xcassets in Resources */,
+				53FC871026DE68D3004FC878 /* GoogleService-Info.plist in Resources */,
 				53FC86F226DE57EF004FC878 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
