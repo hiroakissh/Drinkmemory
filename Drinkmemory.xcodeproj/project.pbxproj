@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,13 @@
 		53FC86F226DE57EF004FC878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FC86F026DE57EF004FC878 /* Main.storyboard */; };
 		53FC86F426DE57F0004FC878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FC86F326DE57F0004FC878 /* Assets.xcassets */; };
 		53FC86F726DE57F0004FC878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FC86F526DE57F0004FC878 /* LaunchScreen.storyboard */; };
+		53FC870226DE66BE004FC878 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870126DE66BE004FC878 /* SigninViewController.swift */; };
+		53FC870426DE66D1004FC878 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870326DE66D1004FC878 /* CreateAccountViewController.swift */; };
+		53FC870626DE66E3004FC878 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870526DE66E3004FC878 /* mainViewController.swift */; };
+		53FC870826DE66F8004FC878 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870726DE66F8004FC878 /* AddViewController.swift */; };
+		53FC870A26DE673F004FC878 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870926DE673F004FC878 /* CategoryViewController.swift */; };
+		53FC870C26DE6760004FC878 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870B26DE6760004FC878 /* ListViewController.swift */; };
+		53FC870E26DE6783004FC878 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870D26DE6783004FC878 /* ProductViewController.swift */; };
 		591677C39F40F9AB0E65E3D3 /* Pods_Drinkmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +33,13 @@
 		53FC86F326DE57F0004FC878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53FC86F626DE57F0004FC878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53FC86F826DE57F0004FC878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53FC870126DE66BE004FC878 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		53FC870326DE66D1004FC878 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		53FC870526DE66E3004FC878 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		53FC870726DE66F8004FC878 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		53FC870926DE673F004FC878 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		53FC870B26DE6760004FC878 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		53FC870D26DE6783004FC878 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		68EACF1AF45A9E5EA2E339B0 /* Pods-Drinkmemory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinkmemory.release.xcconfig"; path = "Target Support Files/Pods-Drinkmemory/Pods-Drinkmemory.release.xcconfig"; sourceTree = "<group>"; };
 		BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drinkmemory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -56,7 +70,6 @@
 				1B2C09C3A8C378C0D998A058 /* Pods-Drinkmemory.debug.xcconfig */,
 				68EACF1AF45A9E5EA2E339B0 /* Pods-Drinkmemory.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -96,6 +109,13 @@
 			isa = PBXGroup;
 			children = (
 				53FC86EE26DE57EF004FC878 /* ViewController.swift */,
+				53FC870126DE66BE004FC878 /* SigninViewController.swift */,
+				53FC870326DE66D1004FC878 /* CreateAccountViewController.swift */,
+				53FC870526DE66E3004FC878 /* mainViewController.swift */,
+				53FC870726DE66F8004FC878 /* AddViewController.swift */,
+				53FC870926DE673F004FC878 /* CategoryViewController.swift */,
+				53FC870B26DE6760004FC878 /* ListViewController.swift */,
+				53FC870D26DE6783004FC878 /* ProductViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,9 +268,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53FC870426DE66D1004FC878 /* CreateAccountViewController.swift in Sources */,
+				53FC870226DE66BE004FC878 /* SigninViewController.swift in Sources */,
+				53FC870826DE66F8004FC878 /* AddViewController.swift in Sources */,
 				53FC86EF26DE57EF004FC878 /* ViewController.swift in Sources */,
+				53FC870A26DE673F004FC878 /* CategoryViewController.swift in Sources */,
+				53FC870C26DE6760004FC878 /* ListViewController.swift in Sources */,
 				53FC86EB26DE57EF004FC878 /* AppDelegate.swift in Sources */,
 				53FC86ED26DE57EF004FC878 /* SceneDelegate.swift in Sources */,
+				53FC870E26DE6783004FC878 /* ProductViewController.swift in Sources */,
+				53FC870626DE66E3004FC878 /* mainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
