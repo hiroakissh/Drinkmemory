@@ -56,15 +56,39 @@
 		53FC86E926DE57EF004FC878 /* Drinkmemory */ = {
 			isa = PBXGroup;
 			children = (
-				53FC86EA26DE57EF004FC878 /* AppDelegate.swift */,
-				53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */,
-				53FC86EE26DE57EF004FC878 /* ViewController.swift */,
+				53FC870026DE5818004FC878 /* Model */,
+				53FC86FF26DE5811004FC878 /* View */,
+				53FC86FE26DE5806004FC878 /* Controller */,
 				53FC86F026DE57EF004FC878 /* Main.storyboard */,
 				53FC86F326DE57F0004FC878 /* Assets.xcassets */,
 				53FC86F526DE57F0004FC878 /* LaunchScreen.storyboard */,
 				53FC86F826DE57F0004FC878 /* Info.plist */,
 			);
 			path = Drinkmemory;
+			sourceTree = "<group>";
+		};
+		53FC86FE26DE5806004FC878 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				53FC86EE26DE57EF004FC878 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		53FC86FF26DE5811004FC878 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53FC86EA26DE57EF004FC878 /* AppDelegate.swift */,
+				53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		53FC870026DE5818004FC878 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hiroakiapp.Drinkmemory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hiroakiapp.Drinkmemory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
