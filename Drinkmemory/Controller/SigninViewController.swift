@@ -14,6 +14,9 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var emailtextField: UITextField!
     @IBOutlet weak var passwordtextField: UITextField!
     @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var backLabel: UILabel!
+    @IBOutlet weak var signinButton: UIButton!
+    @IBOutlet weak var createaccountButton: UIButton!
     
 
     
@@ -21,8 +24,20 @@ class SigninViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIsetting()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func UIsetting() {
+        
+        emailtextField.layer.cornerRadius = 20.0
+        passwordtextField.layer.cornerRadius = 20.0
+        backLabel.layer.cornerRadius = 20.0
+        backLabel.clipsToBounds = true
+        signinButton.layer.cornerRadius = 20.0
+        createaccountButton.layer.cornerRadius = 20.0
+        
     }
     
 

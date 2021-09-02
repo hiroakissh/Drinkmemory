@@ -55,6 +55,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="crateaccountButton" destination="EC7-w0-Jeh" id="jGF-Zy-MBU"/>
+                        <outlet property="signinButton" destination="6K8-kC-dzc" id="Vqg-ec-tz8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,8 +142,11 @@
                     </view>
                     <connections>
                         <outlet property="Label" destination="f0t-0m-kZU" id="2ko-gp-Xat"/>
+                        <outlet property="backLabel" destination="HbK-VN-Bp2" id="jaK-hq-pmz"/>
+                        <outlet property="createaccountButton" destination="YOh-dk-IFV" id="LOu-wP-bk7"/>
                         <outlet property="emailtextField" destination="VHb-dX-UGv" id="ulY-UC-ORl"/>
                         <outlet property="passwordtextField" destination="eXK-6l-oxY" id="RCX-0m-NYl"/>
+                        <outlet property="signinButton" destination="F6e-1F-tNo" id="agb-3J-5xB"/>
                         <segue destination="ljv-kA-VLl" kind="presentation" identifier="mainVC" modalPresentationStyle="fullScreen" id="XXJ-Q2-wJF"/>
                     </connections>
                 </viewController>
@@ -225,8 +232,11 @@
                     </view>
                     <connections>
                         <outlet property="Label" destination="PDC-st-kdk" id="Nhl-Qz-W5E"/>
+                        <outlet property="backLabel" destination="JI6-p8-1Zo" id="Qg8-Jf-O03"/>
+                        <outlet property="createButton" destination="E4O-4w-csM" id="ORG-It-YBR"/>
                         <outlet property="emailTextField" destination="ZFX-t5-zYO" id="sqG-gJ-rYO"/>
                         <outlet property="passwordtextField" destination="w8c-uA-FmY" id="LBT-r6-b2u"/>
+                        <outlet property="signinButton" destination="eNJ-QJ-YL5" id="RCA-4j-rRr"/>
                         <segue destination="ljv-kA-VLl" kind="presentation" identifier="mainVC2" modalPresentationStyle="fullScreen" id="rXQ-hX-mY2"/>
                     </connections>
                 </viewController>
@@ -267,7 +277,7 @@
                                     <outletCollection property="gestureRecognizers" destination="R9E-0R-aNl" appends="YES" id="gBw-hy-4MO"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-j2-t6a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" UserName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-j2-t6a">
                                 <rect key="frame" x="88" y="276" width="240" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.63736706970000001" green="0.5766263599966851" blue="0.62562862633617777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -499,8 +509,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="34D-h7-y2O"/>
-        <segue reference="rXQ-hX-mY2"/>
+        <segue reference="5r8-hc-gHi"/>
+        <segue reference="XXJ-Q2-wJF"/>
         <segue reference="v6S-mR-fOf"/>
         <segue reference="HR8-74-QXQ"/>
     </inferredMetricsTieBreakers>

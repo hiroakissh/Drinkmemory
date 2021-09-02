@@ -15,13 +15,28 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var Label: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordtextField: UITextField!
+    @IBOutlet weak var backLabel: UILabel!
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var signinButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIsetting()
 
         // Do any additional setup after loading the view.
     }
     
+    func UIsetting() {
+        
+        emailTextField.layer.cornerRadius = 20.0
+        passwordtextField.layer.cornerRadius = 20.0
+        backLabel.layer.cornerRadius = 20.0
+        backLabel.clipsToBounds = true
+        signinButton.layer.cornerRadius = 20.0
+        createButton.layer.cornerRadius = 20.0
+        
+    }
     
     @IBAction func CreateAccountButton(_ sender: Any) {
         
