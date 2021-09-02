@@ -268,7 +268,7 @@
                                     <segue destination="fUt-aK-HKs" kind="presentation" modalPresentationStyle="fullScreen" id="gGP-hQ-wGi"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="6hW-sw-dSd">
+                            <imageView clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="6hW-sw-dSd">
                                 <rect key="frame" x="118" y="79" width="181" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -277,10 +277,10 @@
                                     <outletCollection property="gestureRecognizers" destination="R9E-0R-aNl" appends="YES" id="gBw-hy-4MO"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" UserName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-j2-t6a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-j2-t6a">
                                 <rect key="frame" x="88" y="276" width="240" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.63736706970000001" green="0.5766263599966851" blue="0.62562862633617777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.63736706970000001" green="0.61809220708840606" blue="0.58665417210917448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -306,9 +306,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hz5-eZ-RD3"/>
+                    <connections>
+                        <outlet property="iconImageView" destination="6hW-sw-dSd" id="RRr-Bf-oOC"/>
+                        <outlet property="idLabel" destination="rf7-j2-t6a" id="pvT-tG-gk9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SXN-hV-lYz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="R9E-0R-aNl"/>
+                <tapGestureRecognizer id="R9E-0R-aNl">
+                    <connections>
+                        <action selector="tapimageView:" destination="ljv-kA-VLl" id="RtH-e8-5Dp"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="SfL-yG-aek"/>
             </objects>
             <point key="canvasLocation" x="2021.7391304347827" y="91.741071428571431"/>
