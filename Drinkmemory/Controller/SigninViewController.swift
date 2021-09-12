@@ -8,8 +8,13 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseAuthUI
+import FirebaseEmailAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseOAuthUI
+import FirebaseAnonymousAuthUI
 
-class SigninViewController: UIViewController {
+class SigninViewController: UIViewController, FUIAuthDelegate {
     
     @IBOutlet weak var emailtextField: UITextField!
     @IBOutlet weak var passwordtextField: UITextField!
@@ -18,13 +23,24 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var createaccountButton: UIButton!
     
-
+    var authUI: FUIAuth { get { return FUIAuth.defaultAuthUI()!}}
+    //認証に使用するプロバイダの選択
+    let providers: [FUIAuthProvider] = [
+        FUIGoogleAuth(),
+        FUIEmailAuth(),
+        FUIOAuth.twitterAuthProvider()
+    ]
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         UIsetting()
+        
+        //authUIのデリゲート
+        self.authUI.delegate = self
+        self.authUI.providers = providers
+        
 
         // Do any additional setup after loading the view.
     }

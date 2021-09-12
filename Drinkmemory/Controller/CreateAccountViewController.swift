@@ -8,6 +8,11 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseAuthUI
+import FirebaseEmailAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseOAuthUI
+import FirebaseAnonymousAuthUI
 
 class CreateAccountViewController: UIViewController {
     

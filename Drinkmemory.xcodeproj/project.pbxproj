@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5355C14126DE705600C7651F /* Pods_Drinkmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; };
 		5355C14226DE705600C7651F /* Pods_Drinkmemory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53DC67B926EDFA4800443701 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC67B826EDFA4800443701 /* AccountViewController.swift */; };
 		53FC86EB26DE57EF004FC878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EA26DE57EF004FC878 /* AppDelegate.swift */; };
 		53FC86ED26DE57EF004FC878 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */; };
 		53FC86EF26DE57EF004FC878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EE26DE57EF004FC878 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		1B2C09C3A8C378C0D998A058 /* Pods-Drinkmemory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinkmemory.debug.xcconfig"; path = "Target Support Files/Pods-Drinkmemory/Pods-Drinkmemory.debug.xcconfig"; sourceTree = "<group>"; };
+		53DC67B826EDFA4800443701 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		53FC86E726DE57EF004FC878 /* Drinkmemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinkmemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FC86EA26DE57EF004FC878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,9 +116,6 @@
 				53FC870026DE5818004FC878 /* Model */,
 				53FC86FF26DE5811004FC878 /* View */,
 				53FC86FE26DE5806004FC878 /* Controller */,
-				53FC86F026DE57EF004FC878 /* Main.storyboard */,
-				53FC86F326DE57F0004FC878 /* Assets.xcassets */,
-				53FC86F526DE57F0004FC878 /* LaunchScreen.storyboard */,
 				53FC86F826DE57F0004FC878 /* Info.plist */,
 				53FC870F26DE68D3004FC878 /* GoogleService-Info.plist */,
 			);
@@ -134,6 +133,7 @@
 				53FC870926DE673F004FC878 /* CategoryViewController.swift */,
 				53FC870B26DE6760004FC878 /* ListViewController.swift */,
 				53FC870D26DE6783004FC878 /* ProductViewController.swift */,
+				53DC67B826EDFA4800443701 /* AccountViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +141,9 @@
 		53FC86FF26DE5811004FC878 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				53FC86F026DE57EF004FC878 /* Main.storyboard */,
+				53FC86F326DE57F0004FC878 /* Assets.xcassets */,
+				53FC86F526DE57F0004FC878 /* LaunchScreen.storyboard */,
 				53FC86EA26DE57EF004FC878 /* AppDelegate.swift */,
 				53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */,
 			);
@@ -298,6 +301,7 @@
 				53FC86ED26DE57EF004FC878 /* SceneDelegate.swift in Sources */,
 				53FC870E26DE6783004FC878 /* ProductViewController.swift in Sources */,
 				53FC870626DE66E3004FC878 /* mainViewController.swift in Sources */,
+				53DC67B926EDFA4800443701 /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
