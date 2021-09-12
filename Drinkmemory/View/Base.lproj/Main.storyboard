@@ -264,6 +264,9 @@
                                 <state key="normal" title="ログアウト">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="logout:" destination="ljv-kA-VLl" eventType="touchUpInside" id="zQ1-VY-kJE"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="6hW-sw-dSd">
                                 <rect key="frame" x="118" y="79" width="181" height="171"/>
@@ -271,7 +274,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="R9E-0R-aNl" appends="YES" id="gBw-hy-4MO"/>
+                                    <outletCollection property="gestureRecognizers" destination="PPx-IF-QUP" appends="YES" id="J25-Pg-SLz"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-j2-t6a">
@@ -282,9 +285,6 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="SfL-yG-aek" appends="YES" id="hMK-WQ-8Mj"/>
-                                </connections>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザネーム" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHU-u9-Dtc">
                                 <rect key="frame" x="146" y="277" width="123" height="24"/>
@@ -310,6 +310,9 @@
                                 <state key="normal" title="変更">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="Changeprofile:" destination="ljv-kA-VLl" eventType="touchUpInside" id="YtO-W3-Iea"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ql1-JI-8Y9"/>
@@ -317,17 +320,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hz5-eZ-RD3"/>
                     <connections>
+                        <outlet property="ChangeButton" destination="xEO-ti-fXJ" id="8l1-dP-Va5"/>
+                        <outlet property="backButton" destination="8Co-CC-daP" id="iWq-pB-GG5"/>
                         <outlet property="iconImageView" destination="6hW-sw-dSd" id="RRr-Bf-oOC"/>
                         <outlet property="idLabel" destination="rf7-j2-t6a" id="pvT-tG-gk9"/>
+                        <outlet property="logoutButton" destination="0Nz-3A-Jcs" id="lNW-T2-feR"/>
+                        <outlet property="profileImageView" destination="6hW-sw-dSd" id="thy-pT-gRn"/>
+                        <outlet property="usernameTextFiled" destination="rf7-j2-t6a" id="kNz-pU-2WJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SXN-hV-lYz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="R9E-0R-aNl">
+                <tapGestureRecognizer id="PPx-IF-QUP">
                     <connections>
-                        <action selector="tapimageView:" destination="ljv-kA-VLl" id="RtH-e8-5Dp"/>
+                        <action selector="tapImageView:" destination="ljv-kA-VLl" id="rdE-zh-8tM"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="SfL-yG-aek"/>
             </objects>
             <point key="canvasLocation" x="2915.9420289855075" y="-571.20535714285711"/>
         </scene>
@@ -371,7 +378,7 @@
                                 <gestureRecognizers/>
                                 <state key="normal" image="Account"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="4cJ-KP-mbI" appends="YES" id="IEr-r1-F8Z"/>
+                                    <action selector="AccountButton:" destination="fUt-aK-HKs" eventType="touchUpInside" id="OXv-Ps-80j"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uE0-t5-wRt">
@@ -412,7 +419,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isy-jQ-XOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="4cJ-KP-mbI"/>
             </objects>
             <point key="canvasLocation" x="1989.8550724637682" y="91.741071428571431"/>
         </scene>

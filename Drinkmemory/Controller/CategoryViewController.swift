@@ -29,6 +29,11 @@ class CategoryViewController: UIViewController {
         
     }
     
+    @IBAction func AccountButton(_ sender: Any) {
+        
+        
+        
+    }
     
     /*
     // MARK: - Navigation
