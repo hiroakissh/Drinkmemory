@@ -147,6 +147,7 @@
                         <outlet property="emailtextField" destination="VHb-dX-UGv" id="ulY-UC-ORl"/>
                         <outlet property="passwordtextField" destination="eXK-6l-oxY" id="RCX-0m-NYl"/>
                         <outlet property="signinButton" destination="F6e-1F-tNo" id="agb-3J-5xB"/>
+                        <segue destination="fUt-aK-HKs" kind="presentation" identifier="mainVC" modalPresentationStyle="fullScreen" id="zJY-hv-rZ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRd-Rm-eLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -236,6 +237,7 @@
                         <outlet property="emailTextField" destination="ZFX-t5-zYO" id="sqG-gJ-rYO"/>
                         <outlet property="passwordtextField" destination="w8c-uA-FmY" id="LBT-r6-b2u"/>
                         <outlet property="signinButton" destination="eNJ-QJ-YL5" id="RCA-4j-rRr"/>
+                        <segue destination="fUt-aK-HKs" kind="presentation" identifier="mainVC2" modalPresentationStyle="fullScreen" id="a6l-Uu-iob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zQ-6R-XXm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -366,7 +368,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCW-Zd-8uR">
                                 <rect key="frame" x="23" y="48" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <state key="normal" image="Account"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4cJ-KP-mbI" appends="YES" id="IEr-r1-F8Z"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uE0-t5-wRt">
                                 <rect key="frame" x="23" y="141" width="360" height="32"/>
@@ -380,6 +386,9 @@
                                     <segment title="その他"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.83709549900000002" green="0.72556465859999997" blue="0.72375613449999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentedControl:" destination="fUt-aK-HKs" eventType="valueChanged" id="PtA-gi-Ykr"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tS-nh-FNa">
                                 <rect key="frame" x="304" y="58" width="90" height="41"/>
@@ -398,10 +407,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="segmentedControl" destination="uE0-t5-wRt" id="u5H-j0-E23"/>
                         <segue destination="ljv-kA-VLl" kind="presentation" modalPresentationStyle="fullScreen" id="37r-zg-n8C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isy-jQ-XOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4cJ-KP-mbI"/>
             </objects>
             <point key="canvasLocation" x="1989.8550724637682" y="91.741071428571431"/>
         </scene>
@@ -509,6 +520,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="a6l-Uu-iob"/>
         <segue reference="v6S-mR-fOf"/>
         <segue reference="HR8-74-QXQ"/>
     </inferredMetricsTieBreakers>

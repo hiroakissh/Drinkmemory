@@ -23,13 +23,14 @@ class SigninViewController: UIViewController, FUIAuthDelegate {
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var createaccountButton: UIButton!
     
-    var authUI: FUIAuth { get { return FUIAuth.defaultAuthUI()!}}
-    //認証に使用するプロバイダの選択
-    let providers: [FUIAuthProvider] = [
-        FUIGoogleAuth(),
-        FUIEmailAuth(),
-        FUIOAuth.twitterAuthProvider()
-    ]
+//    var authUI: FUIAuth { get { return FUIAuth.defaultAuthUI()!}}
+//    //認証に使用するプロバイダの選択
+//    let providers: [FUIAuthProvider] = [
+//        FUIGoogleAuth(),
+//        FUIEmailAuth(),
+//        FUIOAuth.twitterAuthProvider()
+//    ]
+    
     
     
 
@@ -38,8 +39,8 @@ class SigninViewController: UIViewController, FUIAuthDelegate {
         UIsetting()
         
         //authUIのデリゲート
-        self.authUI.delegate = self
-        self.authUI.providers = providers
+//        authUI.delegate = self
+//        self.authUI.providers = providers
         
 
         // Do any additional setup after loading the view.

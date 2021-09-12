@@ -9,13 +9,27 @@ import UIKit
 
 class CategoryViewController: UIViewController {
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    func UISetting(){
+        
+//        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:UIColor.red], for: .selected)
+        
+    }
 
+    @IBAction func segmentedControl(_ sender: Any) {
+        
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
