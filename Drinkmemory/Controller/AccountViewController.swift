@@ -99,7 +99,7 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
         
     }
     
-    func imkagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
     
