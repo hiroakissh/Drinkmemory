@@ -7,21 +7,44 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addbutton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
+        
+        
         // Do any additional setup after loading the view.
     }
     
     func UISetting(){
         
-//        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:UIColor.red], for: .selected)
+        tableView.layer.cornerRadius = 15.0
+        addbutton.layer.cornerRadius = 20.0
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomTableViewCell
+        
+        cell.drinknameLabel.text = "タイトル"
+        
+        return cell
+    }
+    
+    func configureTableView(){
+        
+        tableView.rowHeight = 450
     }
 
     @IBAction func segmentedControl(_ sender: Any) {
@@ -31,7 +54,12 @@ class CategoryViewController: UIViewController {
     
     @IBAction func AccountButton(_ sender: Any) {
         
+        performSegue(withIdentifier: "accountVC", sender: nil)
         
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
     

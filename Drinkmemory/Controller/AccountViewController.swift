@@ -40,8 +40,15 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     @IBAction func logout(_ sender: Any) {
         //ログアウトして一番最初の画面に戻る
+        let firabaseAuth = Auth.auth()
+        do{
+            try firabaseAuth.signOut()
+        }catch let signOutError as NSError{
+            print("Error signing out: %@", signOutError)
+            return
+        }
         
-        
+        performSegue(withIdentifier: "mainbackVC", sender: nil)
     }
     
     
@@ -54,6 +61,7 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     @IBAction func tapImageView(_ sender: Any) {
         //カメラからアルバムから
+        showAlert()
         
     }
     
@@ -126,4 +134,12 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
         alertController.addAction(action3)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func backbuton(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
 }
