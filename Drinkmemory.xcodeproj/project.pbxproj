@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533B627226F21C6A00151196 /* DrinkDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533B627126F21C6A00151196 /* DrinkDBModel.swift */; };
 		5355C14126DE705600C7651F /* Pods_Drinkmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; };
 		5355C14226DE705600C7651F /* Pods_Drinkmemory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5360B51C26F08E0D00C6BDE7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360B51A26F08E0D00C6BDE7 /* CustomTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		1B2C09C3A8C378C0D998A058 /* Pods-Drinkmemory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinkmemory.debug.xcconfig"; path = "Target Support Files/Pods-Drinkmemory/Pods-Drinkmemory.debug.xcconfig"; sourceTree = "<group>"; };
+		533B627126F21C6A00151196 /* DrinkDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDBModel.swift; sourceTree = "<group>"; };
 		5360B51A26F08E0D00C6BDE7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		5360B51B26F08E0D00C6BDE7 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		537BEDA626EF8200007AF97D /* SendToDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendToDBModel.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				53DC67BA26EE142F00443701 /* CheckPermission.swift */,
 				537BEDA626EF8200007AF97D /* SendToDBModel.swift */,
+				533B627126F21C6A00151196 /* DrinkDBModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				53FC870826DE66F8004FC878 /* AddViewController.swift in Sources */,
 				53FC86EF26DE57EF004FC878 /* ViewController.swift in Sources */,
 				53FC870A26DE673F004FC878 /* CategoryViewController.swift in Sources */,
+				533B627226F21C6A00151196 /* DrinkDBModel.swift in Sources */,
 				53FC870C26DE6760004FC878 /* ListViewController.swift in Sources */,
 				53FC86EB26DE57EF004FC878 /* AppDelegate.swift in Sources */,
 				53FC86ED26DE57EF004FC878 /* SceneDelegate.swift in Sources */,
