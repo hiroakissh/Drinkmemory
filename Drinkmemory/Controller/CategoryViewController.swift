@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -13,9 +14,16 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addbutton: UIButton!
     
+    var db = Firestore.firestore()
+    var imageString = String()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
         
@@ -37,7 +45,9 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomTableViewCell
         
-        cell.drinknameLabel.text = "タイトル"
+        
+        let drinkname = UserDefaults.standard.string(forKey: "drinkname")
+        cell.drinknameLabel.text = drinkname
         
         return cell
     }
@@ -52,25 +62,9 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
-    @IBAction func AccountButton(_ sender: Any) {
-        
-        performSegue(withIdentifier: "accountVC", sender: nil)
-        
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

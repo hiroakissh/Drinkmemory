@@ -55,6 +55,11 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     @IBAction func Changeprofile(_ sender: Any) {
         //画像とユーザネームの変更
+//        //画像が選択されてなくても大丈夫なオプションに変更
+//        if usernameTextFiled.text?.isEmpty != true && let image = profileImageView.image{
+//
+//
+//        }
         
         
     }
