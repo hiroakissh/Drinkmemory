@@ -48,8 +48,8 @@ class SigninViewController: UIViewController, FUIAuthDelegate {
     
     func UIsetting() {
         
-        emailtextField.layer.cornerRadius = 20.0
-        passwordtextField.layer.cornerRadius = 20.0
+        emailtextField.layer.cornerRadius = 10.0
+        passwordtextField.layer.cornerRadius = 10.0
         backLabel.layer.cornerRadius = 20.0
         backLabel.clipsToBounds = true
         signinButton.layer.cornerRadius = 20.0

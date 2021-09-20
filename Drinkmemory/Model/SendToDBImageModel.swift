@@ -14,7 +14,7 @@ protocol SendDBOKdelegate {
     
 }
 
-class SendoToDBModel {
+class SendoToDBImageModel {
     
     var sendDBOKdelegate:SendDBOKdelegate?
     

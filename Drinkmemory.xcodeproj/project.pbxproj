@@ -12,7 +12,7 @@
 		5355C14226DE705600C7651F /* Pods_Drinkmemory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDC0D95843C220A17E64BB53 /* Pods_Drinkmemory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5360B51C26F08E0D00C6BDE7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360B51A26F08E0D00C6BDE7 /* CustomTableViewCell.swift */; };
 		5360B51D26F08E0D00C6BDE7 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5360B51B26F08E0D00C6BDE7 /* CustomTableViewCell.xib */; };
-		537BEDA726EF8200007AF97D /* SendToDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEDA626EF8200007AF97D /* SendToDBModel.swift */; };
+		537BEDA726EF8200007AF97D /* SendToDBImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEDA626EF8200007AF97D /* SendToDBImageModel.swift */; };
 		53DC67B926EDFA4800443701 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC67B826EDFA4800443701 /* AccountViewController.swift */; };
 		53DC67BB26EE142F00443701 /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC67BA26EE142F00443701 /* CheckPermission.swift */; };
 		53FC86EB26DE57EF004FC878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EA26DE57EF004FC878 /* AppDelegate.swift */; };
@@ -50,7 +50,7 @@
 		533B627126F21C6A00151196 /* DrinkDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDBModel.swift; sourceTree = "<group>"; };
 		5360B51A26F08E0D00C6BDE7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		5360B51B26F08E0D00C6BDE7 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		537BEDA626EF8200007AF97D /* SendToDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendToDBModel.swift; sourceTree = "<group>"; };
+		537BEDA626EF8200007AF97D /* SendToDBImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendToDBImageModel.swift; sourceTree = "<group>"; };
 		53DC67B826EDFA4800443701 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		53DC67BA26EE142F00443701 /* CheckPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
 		53FC86E726DE57EF004FC878 /* Drinkmemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinkmemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				53DC67BA26EE142F00443701 /* CheckPermission.swift */,
-				537BEDA626EF8200007AF97D /* SendToDBModel.swift */,
+				537BEDA626EF8200007AF97D /* SendToDBImageModel.swift */,
 				533B627126F21C6A00151196 /* DrinkDBModel.swift */,
 			);
 			path = Model;
@@ -307,7 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				537BEDA726EF8200007AF97D /* SendToDBModel.swift in Sources */,
+				537BEDA726EF8200007AF97D /* SendToDBImageModel.swift in Sources */,
 				53FC870426DE66D1004FC878 /* CreateAccountViewController.swift in Sources */,
 				53FC870226DE66BE004FC878 /* SigninViewController.swift in Sources */,
 				53FC870826DE66F8004FC878 /* AddViewController.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,SendDBOKdelegate{
 
@@ -18,7 +19,7 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var drinkImageView: UIImageView!
     @IBOutlet weak var AddButton: UIButton!
     
-    var sendToDBModel = SendoToDBModel()
+    var sendToDBModel = SendoToDBImageModel()
     var urlString = String()
     
     var db = Firestore.firestore()
@@ -59,18 +60,18 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
         performSegue(withIdentifier: "backmainVC", sender: nil)
         
         //dbに保存
-        if let drinkname = nameTextField.text, let janlu = jamluTextField.text,let sender = Auth.auth().currentUser?.email{
-            
-            db.collection(<#T##collectionPath: String##String#>).addDocument(data: ["sender":sender,"drinkname":drinkname,"janlu":janlu,"imageString":imagestring,"date":Date().timeIntervalSince1970]) { (error) in
-                
-                if error != nil{
-                    print(error.debugDescription)
-                    return
-                }
-                
-            }
-            
-        }
+//        if let drinkname = nameTextField.text, let janlu = jamluTextField.text,let sender = Auth.auth().currentUser?.email{
+//            
+//            db.collection(<#T##collectionPath: String##String#>).addDocument(data: ["sender":sender,"drinkname":drinkname,"janlu":janlu,"imageString":imagestring,"date":Date().timeIntervalSince1970]) { (error) in
+//                
+//                if error != nil{
+//                    print(error.debugDescription)
+//                    return
+//                }
+//                
+//            }
+//            
+//        }
         
         
         
