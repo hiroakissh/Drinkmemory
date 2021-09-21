@@ -14,7 +14,7 @@ import FirebaseGoogleAuthUI
 import FirebaseOAuthUI
 import FirebaseAnonymousAuthUI
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var Label: UILabel!
@@ -28,6 +28,9 @@ class CreateAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIsetting()
+        
+        emailTextField.delegate = self
+        passwordtextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -41,6 +44,14 @@ class CreateAccountViewController: UIViewController {
         signinButton.layer.cornerRadius = 20.0
         createButton.layer.cornerRadius = 20.0
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        emailTextField.resignFirstResponder()
+        passwordtextField.resignFirstResponder()
+        
+        return true
     }
     
     @IBAction func CreateAccountButton(_ sender: Any) {

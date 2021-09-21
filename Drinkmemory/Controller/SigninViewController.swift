@@ -14,7 +14,7 @@ import FirebaseGoogleAuthUI
 import FirebaseOAuthUI
 import FirebaseAnonymousAuthUI
 
-class SigninViewController: UIViewController, FUIAuthDelegate {
+class SigninViewController: UIViewController,UITextFieldDelegate, FUIAuthDelegate {
     
     @IBOutlet weak var emailtextField: UITextField!
     @IBOutlet weak var passwordtextField: UITextField!
@@ -38,6 +38,8 @@ class SigninViewController: UIViewController, FUIAuthDelegate {
         super.viewDidLoad()
         UIsetting()
         
+        emailtextField.delegate = self
+        passwordtextField.delegate = self
         //authUIのデリゲート
 //        authUI.delegate = self
 //        self.authUI.providers = providers
@@ -55,6 +57,14 @@ class SigninViewController: UIViewController, FUIAuthDelegate {
         signinButton.layer.cornerRadius = 20.0
         createaccountButton.layer.cornerRadius = 20.0
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        emailtextField.resignFirstResponder()
+        passwordtextField.resignFirstResponder()
+        
+        return true
     }
     
 

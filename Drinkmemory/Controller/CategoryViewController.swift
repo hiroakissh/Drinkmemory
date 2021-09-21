@@ -47,6 +47,8 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //ここでFirebase内のデータの数を返す、senderで判別する
         return 2
     }
     
