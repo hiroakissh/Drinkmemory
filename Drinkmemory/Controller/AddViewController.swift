@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,SendDBOKdelegate{
+class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource{
 
     @IBOutlet weak var backgroundLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -19,14 +19,14 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var AddButton: UIButton!
     @IBOutlet weak var EmptyLabel: UILabel!
     
-    var sendToDBModel = SendoToDBImageModel()
     var urlString = String()
     
     var pickerView:UIPickerView = UIPickerView()
-    var janluList:[String] = ["コーヒ","紅茶","日本茶","中国茶","その他"]
+    var janluList:[String] = ["コーヒー","紅茶","日本茶","中国茶","その他"]
     
     var db = Firestore.firestore()
     var imagestring = String()
+    var drinkdbmodel = DrinkDBModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
         
         let checkModel = CheckPermission()
         checkModel.showCheckPermission()
-        sendToDBModel.sendDBOKdelegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -62,6 +62,7 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
         jamluTextField.layer.cornerRadius = 15.0
         commentTextField.layer.cornerRadius = 15.0
         AddButton.layer.cornerRadius = 20.0
+        drinkImageView.layer.cornerRadius = 15.0
         
     }
     
@@ -112,35 +113,27 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
     
     @IBAction func AddDrinklist(_ sender: Any) {
         
-        if nameTextField.text != "" && jamluTextField.text != "" && commentTextField.text != ""{
+        if nameTextField.text != "" && jamluTextField.text != "" && commentTextField.text != "" && drinkImageView.image !=  nil{
             print(nameTextField.text!)
             print(jamluTextField.text!)
             print(commentTextField.text!)
-            
-            UserDefaults.standard.setValue(nameTextField.text, forKey: "drinkname")
-            
-            //ImageをstorageにしてURL化する
             
             //dbに保存
             if let drinkname = nameTextField.text, let janlu = jamluTextField.text,
                 let comment = commentTextField.text,
                 let sender = Auth.auth().currentUser?.email{
                 
-                db.collection("drinkmemory").addDocument(
-                    data:["sender":sender,
-                          "drinkname":drinkname,
-                          "janlu":janlu,
-                          "imageString":imagestring,
-                          "Comment":comment,
-                          "date":Date().timeIntervalSince1970]) { (error) in
-                    
-                    if error != nil{
-                        print(error.debugDescription)
-                        return
-                    }
-                    
-                    
-                }
+                //ImageをstorageにしてURL化する
+                let image = drinkImageView.image
+                let data = image!.jpegData(compressionQuality: 1.0)
+                self.drinkdbmodel.uploaddrinkimage(data: data!, drinkname: drinkname)
+                
+                //Userdefalutに保存された画像のURlの文字列を取り出す
+                let drinkimagestring = UserDefaults.standard.string(forKey: "drinkimage")
+                
+                //FirebaseStoreにデータを送る
+                drinkdbmodel.createDrinkData(drinkname: drinkname, janlu: janlu, comment: comment, drinkimagestring: drinkimagestring!, sender: sender)
+
                 performSegue(withIdentifier: "backmainVC", sender: nil)
             }
             

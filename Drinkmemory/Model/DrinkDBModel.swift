@@ -18,41 +18,68 @@ class DrinkDBModel{
     
     init(){}
     
-    
-    func createDrinkData(_ drinkname: String, _ janlu: String, _ comment: String, _ imageurl: URL){
+     //drinkデータをFirebase Storeにデータを作成
+    func createDrinkData(drinkname: String, janlu: String, comment: String, drinkimagestring: String, sender: String){
         
-        db.collection(user!.uid).document(janlu).setData([
-            "drinkname"    : drinkname,
-            "comment"      : comment,
-            "drinkimageurl": imageurl
-        ])
-        
-    }
-    
-    func readDrinkData(_ janlu: String){
-        
-        db.collection(user!.uid).document(janlu).getDocument { (DocumentSnapshot, error) in
+        db.collection(user!.uid).addDocument(
+            data:["sender":sender,
+                  "drinkname":drinkname,
+                  "janlu":janlu,
+                  "imageString":drinkimagestring,
+                  "Comment":comment,
+                  "date":Date().timeIntervalSince1970]) { (error) in
             
             if error != nil{
                 print(error.debugDescription)
                 return
-            }else{
-                
-               // if let value =
-                
             }
+            
             
         }
         
     }
     
-    func uploaddrinkimage(data:Data,_ drinkname:String){
+    //drinkデータをユーザとジャンルごとに取得
+    func readDrinkData(janlu: String) -> [String:[String]]{
+        
+
+        var datas:[String:[String]] = ["drinkname":[],"drinkimage":[]]
+        
+        db.collection(user!.uid).getDocuments { (snaps,error) in
+            if error != nil {
+                print(error.debugDescription)
+                return
+            }else{
+                print(snaps?.documents as Any)
+                guard let snaps = snaps else {return}
+                for document in snaps.documents {
+                    let drinkdata = document.data()
+                    print("クラス内のジャンル" + janlu)
+                    
+                    if (drinkdata["janlu"]! as! String == janlu){
+                        
+                        datas["drinkname"]?.append(drinkdata["drinkname"]! as! String)
+                        datas["drinkimage"]?.append(drinkdata["imageString"]! as! String)
+                        //print(datas)
+                    }else{
+                        print("nomatch")
+                    }
+                
+                }
+            }
+        }
+        return datas
+    }
+    
+     //drinkの画像データを圧縮してFirebasestorageに保存、UserDefalutに値を保存
+    func uploaddrinkimage(data:Data, drinkname:String){
+        
         
         let image = UIImage(data: data)
         let drinkImage = image?.jpegData(compressionQuality: 0.1)
         
         let storage = Storage.storage()
-        let storageRef = storage.reference().child("drinkimage/" + user!.uid + drinkname + ".jpg")
+        let storageRef = storage.reference().child(user!.uid + "/" + drinkname + ".jpg")
         
         storageRef.putData(drinkImage!, metadata: nil) { (metaData, error) in
             
@@ -76,19 +103,6 @@ class DrinkDBModel{
         
         
     }
-    //商品の名前、感想、画像を送る
-//    {
-//    "user":{
-//        "coffee":{
-//            "name":"sample",
-//            "image":"imagestoragepath",
-//            }
-//        "blacktea":{
-//            "name":"sample",
-//            "image":"imagestoragepath",
-//            }
-//        }
-//    }
     
     
 }

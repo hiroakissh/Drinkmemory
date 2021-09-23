@@ -287,7 +287,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.31315386299999998" green="0.20251104240000001" blue="0.080152727660000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
-                                    <segment title="コーヒ"/>
+                                    <segment title="コーヒー"/>
                                     <segment title="紅茶"/>
                                     <segment title="日本茶"/>
                                     <segment title="中国茶"/>
