@@ -9,6 +9,12 @@ import UIKit
 
 class ProductViewController: UIViewController {
 
+    @IBOutlet weak var drinknameLabel: UILabel!
+    @IBOutlet weak var janluLanel: UILabel!
+    @IBOutlet weak var commenttextview: UITextView!
+    @IBOutlet weak var drinkimageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

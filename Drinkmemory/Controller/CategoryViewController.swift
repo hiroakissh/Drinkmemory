@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import SDWebImage
 
 
 class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -17,10 +18,10 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var addbutton: UIButton!
     
     //var userdrinkdatas:[String:[String]] = ["drinkname":[],"drinkimage":[]]
-    var userdrinkdatas = [String:[String]]()
+    var userdrinkdatas:[String:[String]] = ["drinkname":[],"drinkimage":[]]
     var janlu = "コーヒー"
     
-
+    let user = Auth.auth().currentUser
     var db = Firestore.firestore()
     var imageString = String()
     
@@ -38,58 +39,71 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         UISetting()
         configureTableView()
+        loaddrinkdata(janlu: janlu)
         
         
         // Do any additional setup after loading the view.
     }
     
     func UISetting(){
-        
-        tableView.layer.cornerRadius = 15.0
         addbutton.layer.cornerRadius = 20.0
     }
     func configureTableView(){
         
-        tableView.rowHeight = 60
-        tableView.layer.cornerRadius = 20.0
-        tableView.clipsToBounds = true
+//        tableView.rowHeight = 60
+//        tableView.layer.cornerRadius = 20.0
+//        tableView.clipsToBounds = true
     }
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("セルの数を決めるとき" + janlu)
-        userdrinkdatas = drinkdbmodel.readDrinkData(janlu: janlu)
         
-        print("最初に呼ばれる辞書")
         print(userdrinkdatas)
         //ここでFirebase内のデータの数を返す、senderで判別する
         return userdrinkdatas["drinkname"]!.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomTableViewCell
-        let drinkname = UserDefaults.standard.string(forKey: "drinkname")
+        let userdrinkdatasname = userdrinkdatas["drinkname"]![indexPath.row]
+        let userdrinkdatasimage = userdrinkdatas["drinkimage"]![indexPath.row]
         
-        //UI
-        cell.layer.cornerRadius = 20.0
-        cell.layer.masksToBounds = true
-        
-        cell.drinknameLabel.text = drinkname
+        cell.drinknameLabel.text = userdrinkdatasname
+        cell.drinkImage.sd_setImage(with: URL(string: userdrinkdatasimage),completed: nil)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10 //セルの下部のスペース
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
     }
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        let view = UIView()
-        view.tintColor = .clear //透明にする
+        view.tintColor = .black //透明にする
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = .black
+    }
+    
+
     
 
 
@@ -104,7 +118,8 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         default:
             janlu = "コーヒー"
         }
-        tableView.reloadData()
+
+        loaddrinkdata(janlu: janlu)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -112,5 +127,35 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
+    func loaddrinkdata(janlu: String) {
+        db.collection(user!.uid).getDocuments { [self] (snapShot, error) in
+            self.userdrinkdatas = ["drinkname":[],"drinkimage":[]]
+            if error != nil{
+                print(error.debugDescription)
+                return
+            }else{
+                for document in snapShot!.documents {
+                    let drinkdata = document.data()
+                    print(janlu)
+                    if (drinkdata["janlu"]! as! String == janlu){
+                        self.userdrinkdatas["drinkname"]?.append(drinkdata["drinkname"] as! String)
+                        self.userdrinkdatas["drinkimage"]?.append(drinkdata["imageString"] as! String)
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            let indexPath = IndexPath(row: self.userdrinkdatas.count, section: 0)
+                            print(indexPath)
+                            //self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                        }
+                        
+                        
+                    }else{
+                        print("nomatch")
+                    }
+                }
+            }
+            
+        }
+    }
 
 }

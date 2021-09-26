@@ -10,6 +10,7 @@ import Firebase
 import FirebaseStorage
 import FirebaseFirestore
 
+
 class DrinkDBModel{
     
     let user = Auth.auth().currentUser
@@ -61,12 +62,15 @@ class DrinkDBModel{
                         datas["drinkname"]?.append(drinkdata["drinkname"]! as! String)
                         datas["drinkimage"]?.append(drinkdata["imageString"]! as! String)
                         //print(datas)
+                        
+                        
                     }else{
                         print("nomatch")
                     }
                 
                 }
             }
+
         }
         return datas
     }
@@ -81,28 +85,32 @@ class DrinkDBModel{
         let storage = Storage.storage()
         let storageRef = storage.reference().child(user!.uid + "/" + drinkname + ".jpg")
         
+        //データをFirebaseStrageにおく
         storageRef.putData(drinkImage!, metadata: nil) { (metaData, error) in
             
             if error != nil{
+                
                 print(error.debugDescription)
                 return
+                
             }
             
+            //FirebaseStorage内の画像URLが返される
             storageRef.downloadURL { (url, error) in
                 
                 if error != nil{
+                    
                     print(error.debugDescription)
                     return
+                    
                 }
-                
+                //abosoluteStringでURLをStringにしてアプリ内で保存
                 UserDefaults.standard.setValue(url?.absoluteString, forKey: "drinkimage")
                 
             }
             
         }
-        
-        
+    
+    
     }
-    
-    
 }

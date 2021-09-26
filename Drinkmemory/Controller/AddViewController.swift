@@ -62,7 +62,7 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
         jamluTextField.layer.cornerRadius = 15.0
         commentTextField.layer.cornerRadius = 15.0
         AddButton.layer.cornerRadius = 20.0
-        drinkImageView.layer.cornerRadius = 15.0
+        drinkImageView.layer.cornerRadius = 20.0
         
     }
     
@@ -122,10 +122,9 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
             if let drinkname = nameTextField.text, let janlu = jamluTextField.text,
                 let comment = commentTextField.text,
                 let sender = Auth.auth().currentUser?.email{
-                
                 //ImageをstorageにしてURL化する
                 let image = drinkImageView.image
-                let data = image!.jpegData(compressionQuality: 1.0)
+                let data = image?.jpegData(compressionQuality: 1.0)
                 self.drinkdbmodel.uploaddrinkimage(data: data!, drinkname: drinkname)
                 
                 //Userdefalutに保存された画像のURlの文字列を取り出す
@@ -133,7 +132,7 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
                 
                 //FirebaseStoreにデータを送る
                 drinkdbmodel.createDrinkData(drinkname: drinkname, janlu: janlu, comment: comment, drinkimagestring: drinkimagestring!, sender: sender)
-
+                
                 performSegue(withIdentifier: "backmainVC", sender: nil)
             }
             
