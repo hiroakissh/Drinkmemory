@@ -16,7 +16,7 @@
 		53DC67BB26EE142F00443701 /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC67BA26EE142F00443701 /* CheckPermission.swift */; };
 		53FC86EB26DE57EF004FC878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EA26DE57EF004FC878 /* AppDelegate.swift */; };
 		53FC86ED26DE57EF004FC878 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */; };
-		53FC86EF26DE57EF004FC878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EE26DE57EF004FC878 /* ViewController.swift */; };
+		53FC86EF26DE57EF004FC878 /* TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EE26DE57EF004FC878 /* TopController.swift */; };
 		53FC86F226DE57EF004FC878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FC86F026DE57EF004FC878 /* Main.storyboard */; };
 		53FC86F426DE57F0004FC878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FC86F326DE57F0004FC878 /* Assets.xcassets */; };
 		53FC86F726DE57F0004FC878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FC86F526DE57F0004FC878 /* LaunchScreen.storyboard */; };
@@ -25,7 +25,6 @@
 		53FC870626DE66E3004FC878 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870526DE66E3004FC878 /* mainViewController.swift */; };
 		53FC870826DE66F8004FC878 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870726DE66F8004FC878 /* AddViewController.swift */; };
 		53FC870A26DE673F004FC878 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870926DE673F004FC878 /* CategoryViewController.swift */; };
-		53FC870C26DE6760004FC878 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870B26DE6760004FC878 /* ListViewController.swift */; };
 		53FC870E26DE6783004FC878 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC870D26DE6783004FC878 /* ProductViewController.swift */; };
 		53FC871026DE68D3004FC878 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FC870F26DE68D3004FC878 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -54,7 +53,7 @@
 		53FC86E726DE57EF004FC878 /* Drinkmemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinkmemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FC86EA26DE57EF004FC878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53FC86EE26DE57EF004FC878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53FC86EE26DE57EF004FC878 /* TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopController.swift; sourceTree = "<group>"; };
 		53FC86F126DE57EF004FC878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53FC86F326DE57F0004FC878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53FC86F626DE57F0004FC878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,7 +63,6 @@
 		53FC870526DE66E3004FC878 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		53FC870726DE66F8004FC878 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		53FC870926DE673F004FC878 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		53FC870B26DE6760004FC878 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		53FC870D26DE6783004FC878 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		53FC870F26DE68D3004FC878 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68EACF1AF45A9E5EA2E339B0 /* Pods-Drinkmemory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinkmemory.release.xcconfig"; path = "Target Support Files/Pods-Drinkmemory/Pods-Drinkmemory.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,13 +131,12 @@
 		53FC86FE26DE5806004FC878 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				53FC86EE26DE57EF004FC878 /* ViewController.swift */,
+				53FC86EE26DE57EF004FC878 /* TopController.swift */,
 				53FC870126DE66BE004FC878 /* SigninViewController.swift */,
 				53FC870326DE66D1004FC878 /* CreateAccountViewController.swift */,
 				53FC870526DE66E3004FC878 /* mainViewController.swift */,
 				53FC870726DE66F8004FC878 /* AddViewController.swift */,
 				53FC870926DE673F004FC878 /* CategoryViewController.swift */,
-				53FC870B26DE6760004FC878 /* ListViewController.swift */,
 				53FC870D26DE6783004FC878 /* ProductViewController.swift */,
 				53DC67B826EDFA4800443701 /* AccountViewController.swift */,
 			);
@@ -307,10 +304,9 @@
 				53FC870426DE66D1004FC878 /* CreateAccountViewController.swift in Sources */,
 				53FC870226DE66BE004FC878 /* SigninViewController.swift in Sources */,
 				53FC870826DE66F8004FC878 /* AddViewController.swift in Sources */,
-				53FC86EF26DE57EF004FC878 /* ViewController.swift in Sources */,
+				53FC86EF26DE57EF004FC878 /* TopController.swift in Sources */,
 				53FC870A26DE673F004FC878 /* CategoryViewController.swift in Sources */,
 				533B627226F21C6A00151196 /* DrinkDBModel.swift in Sources */,
-				53FC870C26DE6760004FC878 /* ListViewController.swift in Sources */,
 				53FC86EB26DE57EF004FC878 /* AppDelegate.swift in Sources */,
 				53FC86ED26DE57EF004FC878 /* SceneDelegate.swift in Sources */,
 				53FC870E26DE6783004FC878 /* ProductViewController.swift in Sources */,
