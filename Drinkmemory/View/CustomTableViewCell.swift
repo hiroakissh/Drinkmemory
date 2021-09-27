@@ -18,6 +18,9 @@ class CustomTableViewCell: UITableViewCell {
         // Initialization code
         drinkImage.layer.cornerRadius = 20.0
         CustomCell.layer.cornerRadius = 20.0
+        CustomCell.layer.shadowOffset = CGSize(width: 0, height: 1)
+        CustomCell.layer.shadowOpacity = 0.2
+        CustomCell.layer.shadowRadius = 20.0
         
     }
 

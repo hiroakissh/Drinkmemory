@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TopViewController: UIViewController {
     
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var crateaccountButton: UIButton!
