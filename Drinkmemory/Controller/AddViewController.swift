@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseFirestore
 
 class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource{
@@ -113,28 +114,25 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
     
     @IBAction func AddDrinklist(_ sender: Any) {
         
-        if nameTextField.text != "" && jamluTextField.text != "" && commentTextField.text != "" && drinkImageView.image !=  nil{
-            print(nameTextField.text!)
-            print(jamluTextField.text!)
-            print(commentTextField.text!)
-            
+        let janlu = jamluTextField.text
+        let image = drinkImageView.image
+        let drinkname = nameTextField.text
+        let comment = commentTextField.text
+        let sender = Auth.auth().currentUser?.email
+
+        if drinkname != "" && janlu != "" && comment != "" && image !=  nil{
             //dbに保存
-            if let drinkname = nameTextField.text, let janlu = jamluTextField.text,
-                let comment = commentTextField.text,
-                let sender = Auth.auth().currentUser?.email{
-                //ImageをstorageにしてURL化する
-                let image = drinkImageView.image
-                let data = image?.jpegData(compressionQuality: 1.0)
-                self.drinkdbmodel.uploaddrinkimage(data: data!, drinkname: drinkname)
-                
-                //Userdefalutに保存された画像のURlの文字列を取り出す
-                let drinkimagestring = UserDefaults.standard.string(forKey: "drinkimage")
-                
-                //FirebaseStoreにデータを送る
-                drinkdbmodel.createDrinkData(drinkname: drinkname, janlu: janlu, comment: comment, drinkimagestring: drinkimagestring!, sender: sender)
-                
-                performSegue(withIdentifier: "backmainVC", sender: nil)
-            }
+            let data = image?.jpegData(compressionQuality: 1.0)
+            self.drinkdbmodel.uploaddrinkimage(data: data!, drinkname: drinkname!)
+            
+            //Userdefalutに保存された画像のURlの文字列を取り出す
+            let drinkimagestring = UserDefaults.standard.string(forKey: "drinkimage")
+            
+            //FirebaseStoreにデータを送る
+            drinkdbmodel.createDrinkData(drinkname: drinkname!, janlu: janlu!, comment: comment!, drinkimagestring: drinkimagestring!, sender: sender!)
+            
+            performSegue(withIdentifier: "backmainVC", sender: nil)
+
             
         }else {
             EmptyLabel.text = "記入されてない箇所があります"

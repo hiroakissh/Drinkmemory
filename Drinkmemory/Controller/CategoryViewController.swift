@@ -86,21 +86,21 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         return 100
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 0.5
+//    }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        return 0.1
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        view.tintColor = .black //透明にする
-        
-    }
-    
+
+//    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+//        view.tintColor = .clear //透明にする
+//
+//    }
+
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = .black
+        view.tintColor = .clear
     }
     
 
@@ -147,14 +147,11 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
                             print(indexPath)
                             //self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                         }
-                        
-                        
                     }else{
                         print("nomatch")
                     }
                 }
             }
-            
         }
     }
 
