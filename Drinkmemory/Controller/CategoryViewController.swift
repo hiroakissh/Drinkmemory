@@ -61,12 +61,12 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         print(userdrinkdatas)
         //ここでFirebase内のデータの数を返す、senderで判別する
-        return userdrinkdatas["drinkname"]!.count
+        return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        return userdrinkdatas["drinkname"]!.count
         
     }
     
