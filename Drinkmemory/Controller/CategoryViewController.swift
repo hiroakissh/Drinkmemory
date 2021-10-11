@@ -11,13 +11,13 @@ import FirebaseFirestore
 import SDWebImage
 
 
-class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+class CategoryViewController: UIViewController {
+    
+    @IBOutlet var categoryview: CatergoryView!
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addbutton: UIButton!
     
-    //var userdrinkdatas:[String:[String]] = ["drinkname":[],"drinkimage":[]]
     var userdrinkdatas:[String:[String]] = ["drinkname":[],"drinkimage":[]]
     var janlu = "コーヒー"
     
@@ -25,88 +25,28 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var db = Firestore.firestore()
     var imageString = String()
     
-    let drinkdbmodel = DrinkDBModel()
+    let drinkModel = DrinkDBModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
-        
         UISetting()
-        configureTableView()
-        loaddrinkdata(janlu: janlu)
         
-        
+        drinkModel.notificationCenter.addObserver(self, selector: #selector(self.ChangeCell(_:)), name: .init( NSNotification.Name(rawValue: DrinkDBModel.notificationName)), object: nil)
+ 
         // Do any additional setup after loading the view.
     }
     
     func UISetting(){
         addbutton.layer.cornerRadius = 20.0
     }
-    func configureTableView(){
+    
+    @objc func ChangeCell(_ notification: Notification){
         
-//        tableView.rowHeight = 60
-//        tableView.layer.cornerRadius = 20.0
-//        tableView.clipsToBounds = true
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        print(userdrinkdatas)
-        //ここでFirebase内のデータの数を返す、senderで判別する
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return userdrinkdatas["drinkname"]!.count
+        categoryview.previewCell()
         
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomTableViewCell
-        let userdrinkdatasname = userdrinkdatas["drinkname"]![indexPath.row]
-        let userdrinkdatasimage = userdrinkdatas["drinkimage"]![indexPath.row]
-        
-        cell.drinknameLabel.text = userdrinkdatasname
-        cell.drinkImage.sd_setImage(with: URL(string: userdrinkdatasimage),completed: nil)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 0.5
-//    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.1
-    }
-
-//    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-//        view.tintColor = .clear //透明にする
-//
-//    }
-
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = .clear
-    }
-    
-
-    
-
-
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
@@ -118,8 +58,7 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         default:
             janlu = "コーヒー"
         }
-
-        loaddrinkdata(janlu: janlu)
+        categoryview.loaddrinkdata(janlu: janlu)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -127,32 +66,5 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
-    func loaddrinkdata(janlu: String) {
-        db.collection(user!.uid).getDocuments { [self] (snapShot, error) in
-            self.userdrinkdatas = ["drinkname":[],"drinkimage":[]]
-            if error != nil{
-                print(error.debugDescription)
-                return
-            }else{
-                for document in snapShot!.documents {
-                    let drinkdata = document.data()
-                    print(janlu)
-                    if (drinkdata["janlu"]! as! String == janlu){
-                        self.userdrinkdatas["drinkname"]?.append(drinkdata["drinkname"] as! String)
-                        self.userdrinkdatas["drinkimage"]?.append(drinkdata["imageString"] as! String)
-                        
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                            let indexPath = IndexPath(row: self.userdrinkdatas.count, section: 0)
-                            print(indexPath)
-                            //self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-                        }
-                    }else{
-                        print("nomatch")
-                    }
-                }
-            }
-        }
-    }
 
 }

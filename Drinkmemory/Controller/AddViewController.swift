@@ -123,15 +123,23 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate, UINav
         if drinkname != "" && janlu != "" && comment != "" && image !=  nil{
             //dbに保存
             let data = image?.jpegData(compressionQuality: 1.0)
+            
+            //UserDefaults.standard.setValue("test", forKey: "drinkimage")
             self.drinkdbmodel.uploaddrinkimage(data: data!, drinkname: drinkname!)
+            
+        //Thread.sleep(forTimeInterval: 4.0)
+            
             
             //Userdefalutに保存された画像のURlの文字列を取り出す
             let drinkimagestring = UserDefaults.standard.string(forKey: "drinkimage")
-            
             //FirebaseStoreにデータを送る
             drinkdbmodel.createDrinkData(drinkname: drinkname!, janlu: janlu!, comment: comment!, drinkimagestring: drinkimagestring!, sender: sender!)
             
             performSegue(withIdentifier: "backmainVC", sender: nil)
+            
+            
+            
+            
 
             
         }else {

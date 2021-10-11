@@ -14,10 +14,19 @@ import FirebaseFirestore
 
 class DrinkDBModel{
     
+    static let notificationName = "AddModel"
+    
+    let notificationCenter = NotificationCenter()
+    
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     
-    init(){}
+    internal var bool: Bool = false{
+        didSet{
+            notificationCenter.post(name: .init(rawValue: DrinkDBModel.notificationName), object: bool)
+        }
+    }
+
     
      //drinkデータをFirebase Storeにデータを作成
     func createDrinkData(drinkname: String, janlu: String, comment: String, drinkimagestring: String, sender: String){
@@ -96,7 +105,7 @@ class DrinkDBModel{
            }
 
            //FirebaseStorage内の画像URLが返される
-           storageRef.downloadURL { (url, error) in
+           storageRef.downloadURL { [self] (url, error) in
 
                if error != nil{
 
@@ -106,9 +115,14 @@ class DrinkDBModel{
                }
                //abosoluteStringでURLをStringにしてアプリ内で保存
                UserDefaults.standard.setValue(url?.absoluteString, forKey: "drinkimage")
-
+               bool = true
+               
+               
            }
 
        }
    }
+    
+
+
 }

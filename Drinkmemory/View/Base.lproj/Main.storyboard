@@ -281,7 +281,7 @@
         <scene sceneID="qIs-wb-C5E">
             <objects>
                 <viewController id="fUt-aK-HKs" customClass="CategoryViewController" customModule="Drinkmemory" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="okk-1y-Hnf">
+                    <view key="view" contentMode="scaleToFill" id="okk-1y-Hnf" customClass="CatergoryView" customModule="Drinkmemory" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -311,10 +311,6 @@
                                         <color key="backgroundColor" red="1" green="0.76873764990000004" blue="0.50221559709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="fUt-aK-HKs" id="nTT-bO-E1F"/>
-                                    <outlet property="delegate" destination="fUt-aK-HKs" id="jef-lb-hE5"/>
-                                </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uE0-t5-wRt">
                                 <rect key="frame" x="23" y="141" width="360" height="32"/>
@@ -347,11 +343,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JsG-O7-XPW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="tableView" destination="3IF-Zd-8Dm" id="2sk-Sq-Vto"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="addbutton" destination="0tS-nh-FNa" id="ZeK-Lc-uXy"/>
+                        <outlet property="categoryview" destination="okk-1y-Hnf" id="4sX-9p-1fr"/>
                         <outlet property="segmentedControl" destination="uE0-t5-wRt" id="u5H-j0-E23"/>
-                        <outlet property="tableView" destination="3IF-Zd-8Dm" id="94z-v3-T8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isy-jQ-XOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

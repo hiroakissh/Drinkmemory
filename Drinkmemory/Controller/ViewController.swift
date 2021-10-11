@@ -12,9 +12,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var crateaccountButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIsetting()
+        
         // Do any additional setup after loading the view.
     }
     func UIsetting() {
@@ -23,6 +25,8 @@ class ViewController: UIViewController {
         crateaccountButton.layer.cornerRadius = 20.0
         
     }
+    
+
 
 }
 
