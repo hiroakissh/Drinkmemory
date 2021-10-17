@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 import FirebaseStorage
 import FirebaseFirestore
 
@@ -14,7 +15,6 @@ import FirebaseFirestore
 class DrinkDBModel{
     
     let user = Auth.auth().currentUser
-    
     let db = Firestore.firestore()
     
     init(){}
@@ -75,42 +75,40 @@ class DrinkDBModel{
         return datas
     }
     
-     //drinkの画像データを圧縮してFirebasestorageに保存、UserDefalutに値を保存
-    func uploaddrinkimage(data:Data, drinkname:String){
-        
-        
-        let image = UIImage(data: data)
-        let drinkImage = image?.jpegData(compressionQuality: 0.1)
-        
-        let storage = Storage.storage()
-        let storageRef = storage.reference().child(user!.uid + "/" + drinkname + ".jpg")
-        
-        //データをFirebaseStrageにおく
-        storageRef.putData(drinkImage!, metadata: nil) { (metaData, error) in
-            
-            if error != nil{
-                
-                print(error.debugDescription)
-                return
-                
-            }
-            
-            //FirebaseStorage内の画像URLが返される
-            storageRef.downloadURL { (url, error) in
-                
-                if error != nil{
-                    
-                    print(error.debugDescription)
-                    return
-                    
-                }
-                //abosoluteStringでURLをStringにしてアプリ内で保存
-                UserDefaults.standard.setValue(url?.absoluteString, forKey: "drinkimage")
-                
-            }
-            
-        }
-    
-    
-    }
+    //drinkの画像データを圧縮してFirebasestorageに保存、UserDefalutに値を保存
+   func uploaddrinkimage(data:Data, drinkname:String){
+
+
+       let image = UIImage(data: data)
+       let drinkImage = image?.jpegData(compressionQuality: 0.1)
+
+       let storage = Storage.storage()
+       let storageRef = storage.reference().child(user!.uid).child(drinkname + ".jpg")
+       
+       //データをFirebaseStrageにおく
+       storageRef.putData(drinkImage!, metadata: nil) { (metadata, error) in
+
+           if error != nil{
+
+               print(error.debugDescription)
+               return
+
+           }
+
+           //FirebaseStorage内の画像URLが返される
+           storageRef.downloadURL { (url, error) in
+
+               if error != nil{
+
+                   print(error.debugDescription)
+                   return
+
+               }
+               //abosoluteStringでURLをStringにしてアプリ内で保存
+               UserDefaults.standard.setValue(url?.absoluteString, forKey: "drinkimage")
+
+           }
+
+       }
+   }
 }

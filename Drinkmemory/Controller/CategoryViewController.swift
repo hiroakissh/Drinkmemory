@@ -64,6 +64,12 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         print(userdrinkdatas)
         //ここでFirebase内のデータの数を返す、senderで判別する
         return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return userdrinkdatas["drinkname"]!.count
+
         
     }
     
@@ -95,6 +101,23 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+
+    
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 0.5
+//    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+
+//    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+//        view.tintColor = .clear //透明にする
+//
+//    }
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = .clear
    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -171,14 +194,11 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
                             print(indexPath)
                             //self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                         }
-                        
-                        
                     }else{
                         print("nomatch")
                     }
                 }
             }
-            
         }
     }
 
