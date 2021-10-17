@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseFirestore
 import SDWebImage
 
@@ -34,6 +35,7 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         tableView.delegate = self
         tableView.dataSource = self
+        //tableView.contentInset = UIEdgeInsets(top: 0.0,left: 5.0,bottom: 0.0,right: 5.0)
         
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
         
@@ -49,7 +51,7 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         addbutton.layer.cornerRadius = 20.0
     }
     func configureTableView(){
-        
+
 //        tableView.rowHeight = 60
 //        tableView.layer.cornerRadius = 20.0
 //        tableView.clipsToBounds = true
@@ -67,14 +69,28 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return userdrinkdatas["drinkname"]!.count
+
         
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return userdrinkdatas["drinkname"]!.count
+        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomTableViewCell
         let userdrinkdatasname = userdrinkdatas["drinkname"]![indexPath.row]
         let userdrinkdatasimage = userdrinkdatas["drinkimage"]![indexPath.row]
+        
+        
+        cell.layer.masksToBounds = false
+        cell.layer.cornerRadius = 20.0
+        cell.layer.shadowOffset = CGSize(width: 3, height: 1)
+        cell.layer.shadowColor = UIColor.white.cgColor
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowRadius = 5
         
         cell.drinknameLabel.text = userdrinkdatasname
         cell.drinkImage.sd_setImage(with: URL(string: userdrinkdatasimage),completed: nil)
@@ -85,6 +101,7 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+
     
 //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 //        return 0.5
@@ -101,7 +118,37 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = .clear
+   
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
     }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let marginHeaderView = UIView()
+        marginHeaderView.backgroundColor = .clear
+        return marginHeaderView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let marginFooterView = UIView()
+        marginFooterView.backgroundColor = .clear
+        return marginFooterView
+    }
+    
+    
+    
+//    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+//        view.tintColor = .black //透明にする
+//
+//    }
+//
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        view.tintColor = .black
+//    }
     
 
     
