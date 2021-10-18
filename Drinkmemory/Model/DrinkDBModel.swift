@@ -22,6 +22,7 @@ class DrinkDBModel{
      //drinkデータをFirebase Storeにデータを作成
     func createDrinkData(drinkname: String, janlu: String, comment: String, drinkimagestring: String, sender: String){
         
+        
         db.collection(user!.uid).addDocument(
             data:["sender":sender,
                   "drinkname":drinkname,
@@ -61,6 +62,7 @@ class DrinkDBModel{
                         
                         datas["drinkname"]?.append(drinkdata["drinkname"]! as! String)
                         datas["drinkimage"]?.append(drinkdata["imageString"]! as! String)
+                        
                         //print(datas)
                         
                         
