@@ -23,9 +23,11 @@
 ### ログイン画面
 <img src="https://user-images.githubusercontent.com/48234687/137822440-00c23a51-08b0-48ab-bda6-8d7c92514391.png" width="320px">
 ### アカウント作成画面
-<img src="https://user-images.githubusercontent.com/48234687/137822483-92d723be-7a27-4f72-86d3-87c6e68d2b2c.png" width="320px">
+<img src="https://user-images.githubusercontent.com/48234687/137822996-33099882-db70-4853-8220-cb8a8fb7fb1a.png" width="320px">
 ### メイン画面
 <img src="https://user-images.githubusercontent.com/48234687/137822567-e55040de-ad74-49ef-a8c7-28475cc1038b.png" width="320px">
+
+<img src="https://user-images.githubusercontent.com/48234687/137823092-dd47f43c-3aad-4041-9ca0-274bc0559afa.png" width="320px">
 
 ### 追加画面
 <img src="https://user-images.githubusercontent.com/48234687/137822605-554ea6f4-da72-4eea-8f5c-76acb88eac65.png" width="320px">
