@@ -15,6 +15,7 @@
 		5360B51D26F08E0D00C6BDE7 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5360B51B26F08E0D00C6BDE7 /* CustomTableViewCell.xib */; };
 		53DC67B926EDFA4800443701 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC67B826EDFA4800443701 /* AccountViewController.swift */; };
 		53DC67BB26EE142F00443701 /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC67BA26EE142F00443701 /* CheckPermission.swift */; };
+		53E4FA66271E95C8008A542E /* DrinkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E4FA65271E95C8008A542E /* DrinkDetailViewController.swift */; };
 		53FC86EB26DE57EF004FC878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EA26DE57EF004FC878 /* AppDelegate.swift */; };
 		53FC86ED26DE57EF004FC878 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */; };
 		53FC86EF26DE57EF004FC878 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC86EE26DE57EF004FC878 /* TopViewController.swift */; };
@@ -52,6 +53,7 @@
 		5360B51B26F08E0D00C6BDE7 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		53DC67B826EDFA4800443701 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		53DC67BA26EE142F00443701 /* CheckPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
+		53E4FA65271E95C8008A542E /* DrinkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailViewController.swift; sourceTree = "<group>"; };
 		53FC86E726DE57EF004FC878 /* Drinkmemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinkmemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FC86EA26DE57EF004FC878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53FC86EC26DE57EF004FC878 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				53FC870926DE673F004FC878 /* CategoryViewController.swift */,
 				53FC870D26DE6783004FC878 /* ProductViewController.swift */,
 				53DC67B826EDFA4800443701 /* AccountViewController.swift */,
+				53E4FA65271E95C8008A542E /* DrinkDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				53DC67B926EDFA4800443701 /* AccountViewController.swift in Sources */,
 				532D2256271DC71400C44C25 /* Drink.swift in Sources */,
 				53DC67BB26EE142F00443701 /* CheckPermission.swift in Sources */,
+				53E4FA66271E95C8008A542E /* DrinkDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
