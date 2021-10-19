@@ -20,6 +20,7 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     //var userdrinkdatas:[String:[String]] = ["drinkname":[],"drinkimage":[]]
     var userdrinkdatas:[String:[String]] = ["drinkname":[],"drinkimage":[]]
+    var userdrink:[Drink] = []
     var janlu = "コーヒー"
     
     let user = Auth.auth().currentUser
@@ -61,13 +62,8 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print(userdrinkdatas)
+        //print(userdrinkdatas)
         //ここでFirebase内のデータの数を返す、senderで判別する
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
         return userdrinkdatas["drinkname"]!.count
 
         
@@ -79,21 +75,18 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomTableViewCell
-        let userdrinkdatasname = userdrinkdatas["drinkname"]![indexPath.row]
-        let userdrinkdatasimage = userdrinkdatas["drinkimage"]![indexPath.row]
+        //let userdrinkdatasname = userdrinkdatas["drinkname"]![indexPath.row]
+        print(indexPath.row)
+        print(userdrinkdatas)
+        //print(userdrinkdatasname)
+        //let userdrinkdatasimage = userdrinkdatas["drinkimage"]![indexPath.row]
         
+        cell.drinknameLabel.text = userdrinkdatas["drinkname"]![indexPath.row]
         
-        cell.layer.masksToBounds = false
-        cell.layer.cornerRadius = 20.0
-        cell.layer.shadowOffset = CGSize(width: 3, height: 1)
-        cell.layer.shadowColor = UIColor.white.cgColor
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.shadowRadius = 5
-        
-        cell.drinknameLabel.text = userdrinkdatasname
-        cell.drinkImage.sd_setImage(with: URL(string: userdrinkdatasimage),completed: nil)
+        cell.drinkImage.sd_setImage(with: URL(string: userdrinkdatas["drinkimage"]![indexPath.row]),completed: nil)
+            
         
         return cell
     }
@@ -187,10 +180,11 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
                     if (drinkdata["janlu"]! as! String == janlu){
                         self.userdrinkdatas["drinkname"]?.append(drinkdata["drinkname"] as! String)
                         self.userdrinkdatas["drinkimage"]?.append(drinkdata["imageString"] as! String)
+                        print(userdrinkdatas)
                         
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
-                            let indexPath = IndexPath(row: self.userdrinkdatas.count, section: 0)
+                            let indexPath = IndexPath(row: self.userdrinkdatas["drinkname"]!.count - 1, section: 0)
                             print(indexPath)
                             //self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                         }

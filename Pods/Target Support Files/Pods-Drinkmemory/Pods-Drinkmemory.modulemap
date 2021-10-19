@@ -1,0 +1,6 @@
+framework module Pods_Drinkmemory {
+  umbrella header "Pods-Drinkmemory-umbrella.h"
+
+  export *
+  module * { export * }
+}
