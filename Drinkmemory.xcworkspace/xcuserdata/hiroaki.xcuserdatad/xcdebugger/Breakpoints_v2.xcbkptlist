@@ -30,8 +30,8 @@
             filePath = "Drinkmemory/Controller/CreateAccountViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "CreateAccountButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
