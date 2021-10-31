@@ -13,5 +13,6 @@ target 'Drinkmemory' do
   pod 'Firebase/Storage'
   pod 'EMAlertController'
   pod 'FirebaseUI'
+  pod 'SwiftLint'
 
 end
